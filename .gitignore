@@ -3,17 +3,20 @@
 # =========================
 Backend/node_modules/
 Backend/.env
+Backend/package-lock.json
 
 # =========================
 # Frontend
 # =========================
 frontend/node_modules/
 frontend/build/
+frontend/package-lock.json
 
 # =========================
 # General
 # =========================
 node_modules/
+package-lock.json
 .env
 .DS_Store
 
