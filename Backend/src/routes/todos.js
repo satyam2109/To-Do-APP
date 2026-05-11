@@ -10,6 +10,7 @@ const todoController = require('../controllers/todoControllers');
  *     description: Retrieve todos with filtering options
  *     tags:
  *       - Todos
+ *
  *     parameters:
  *       - in: query
  *         name: todoId
@@ -45,7 +46,49 @@ const todoController = require('../controllers/todoControllers');
  *
  *     responses:
  *       200:
- *         description: List of todos
+ *         description: Successfully fetched todos
+ *         content:
+ *           application/json:
+ *             example:
+ *               total_no_of_records: 2
+ *               message: Success
+ *               To_Do:
+ *                 - todoId: 1
+ *                   title: Learn MERN
+ *                   description: Complete backend APIs
+ *                   status: false
+ *                   targetDate: 2026-05-20
+ *                   createdAt: 2026-05-10
+ *                   updatedAt: 2026-05-10
+ *
+ *                 - todoId: 2
+ *                   title: Learn React
+ *                   description: Build frontend UI
+ *                   status: true
+ *                   targetDate: 2026-05-25
+ *                   createdAt: 2026-05-11
+ *                   updatedAt: 2026-05-12
+ *
+ *       400:
+ *         description: Invalid query parameter
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Invalid todoId
+ *
+ *       404:
+ *         description: No todos found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: No todos found
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Internal Server Error
  */
 router.get('/', todoController.getTodos);
 
