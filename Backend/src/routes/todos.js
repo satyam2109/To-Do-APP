@@ -83,7 +83,7 @@ const todoController = require('../controllers/todoControllers');
  *             example:
  *               message: Internal Server Error
  */
-router.get('/', todoController.getTodos);
+router.get('/fetchTodo', todoController.getTodos);
 
 /**
  * @swagger
@@ -144,7 +144,7 @@ router.get('/', todoController.getTodos);
  *             example:
  *               message: Internal Server Error
  */
-router.post('/', todoController.createToDo);
+router.post('/createTodo', todoController.createToDo);
 
 /**
  * @swagger
@@ -212,7 +212,7 @@ router.post('/', todoController.createToDo);
  *             example:
  *               message: Internal Server Error
  */
-router.put('/:id', todoController.updateToDo);
+router.put('/updateTodo/:id', todoController.updateToDo);
 
 /**
  * @swagger
@@ -289,6 +289,6 @@ router.delete('/clear-all', todoController.deleteAllTodos);
  *             example:
  *               message: Internal Server Error
  */
-router.delete('/:id', todoController.deleteToDo);
+router.delete('/Delete-One/:id', todoController.deleteToDo);
 
 module.exports = router;

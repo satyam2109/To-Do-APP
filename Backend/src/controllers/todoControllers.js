@@ -28,16 +28,20 @@ exports.getTodos = async (req, res) => {
       query.title = { $regex: title, $options: "i" };
     }
 
-    if (startDate || endDate) {
-      query.targetDate = {};
+    if (startDate) {
+      const start = new Date(startDate);
+      const end = new Date(startDate);
 
-      if (startDate) {
-        query.targetDate.$gte = new Date(startDate);
-      }
+      end.setHours(23, 59, 59, 999);
+      query.createdAt = { $gte: start, $lte: end };
+    }
 
-      if (endDate) {
-        query.targetDate.$lte = new Date(endDate);
-      }
+    if (endDate) {
+      const start = new Date(endDate);
+      const end = new Date(endDate);
+
+      end.setHours(23, 59, 59, 999);
+      query.targetDate = { $gte: start, $lte: end };
     }
 
     console.log("Query: ", query);
@@ -229,7 +233,7 @@ exports.deleteAllTodos = async (req, res) => {
         deletedCount: 0,
       });
     }
-    
+
     const result = await Todo.deleteMany({});
     const resultcounter = await Counter.deleteOne({});
 
