@@ -2140,3 +2140,20 @@
   outline-offset: 4px;
   border-radius: 10px;
 }
+/* Shared layout placeholders */
+.page-placeholder {
+  min-height: 100%;
+}
+
+.placeholder-card {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+}
+
+.home-page.dark-mode .placeholder-card {
+  background: #1e293b;
+  border-color: #334155;
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import "./ApiDialog.css";
+import "../../styles/api-dialog.css";
 
-const ApiDialog = ({
+function ApiDialog({
   isOpen,
   type = "error",
   title,
@@ -10,7 +10,7 @@ const ApiDialog = ({
   onConfirm,
   confirmText = "Delete",
   cancelText = "Cancel",
-}) => {
+}) {
   if (!isOpen) {
     return null;
   }
@@ -20,18 +20,12 @@ const ApiDialog = ({
   return (
     <div className="api-dialog-overlay">
       <div className={`api-dialog api-dialog-${type}`}>
-
         <div className="api-dialog-icon">
-          {type === "success" ? (
-            <span>✓</span>
-          ) : (
-            <span>!</span>
-          )}
+          {type === "success" ? <span>✓</span> : <span>!</span>}
         </div>
 
         <div className="api-dialog-content">
           <h3>{title}</h3>
-
           <p>{message}</p>
         </div>
 
@@ -44,7 +38,6 @@ const ApiDialog = ({
             >
               {cancelText}
             </button>
-
             <button
               type="button"
               className="api-dialog-confirm-button"
@@ -65,6 +58,6 @@ const ApiDialog = ({
       </div>
     </div>
   );
-};
+}
 
 export default ApiDialog;
